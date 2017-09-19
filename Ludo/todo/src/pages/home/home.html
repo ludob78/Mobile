@@ -13,7 +13,25 @@
   </p>
   <button ion-button color="dark" (click)="showAlert()">Dark</button>
   <ion-tabs>
-    <ion-tab tabIcon="heart" [root]="tab1"></ion-tab>
-    <ion-tab tabIcon="star" [root]="tab2"></ion-tab>
+    <ion-tab tabIcon="ios-list-box-outline" tabTitle="TodoList" [root]="home_tab"></ion-tab>
+    <ion-tab tabIcon="ios-information-circle-outline" tabTitle="About" [root]="about_tab"></ion-tab>
+    <ion-tab tabIcon="ios-help-circle-outline" tabTitle="Contact" [root]="contact_tab"></ion-tab>
   </ion-tabs>`
+
+<!--  <ion-list>
+    <ion-list-header>
+      Hobbits
+    </ion-list-header>
+    <a ion-item (click)="openModal({charNum: 0})">
+      Gollum
+    </a>
+    <a ion-item (click)="openModal({charNum: 1})">
+      Frodo Baggins
+    </a>
+    <a ion-item (click)="openModal({charNum: 2})">
+      Sam
+    </a>
+  </ion-list>-->
+
 </ion-content>
+

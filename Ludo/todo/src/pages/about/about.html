@@ -14,5 +14,13 @@
 
 
 <ion-content padding>
-
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+    <ion-list>
+      <!--//la fonction pop du navController permet de retirer la premiere page de la hiérarchie cad la page courante-->
+      <!--<button ion-button="secondary" (click)="navCtrl.pop()">Back</button>-->
+    </ion-list>
+  <!--{{pos.json()}}-->
+  <div id="map" style="height: 100%;width:100%;background-color: #007aff;"></div>
 </ion-content>

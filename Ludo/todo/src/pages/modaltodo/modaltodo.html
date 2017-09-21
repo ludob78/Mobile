@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{todo.titre}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <!--<ion-avatar item-start>-->
+        <!--<img src="{{todo.image}}">-->
+      <!--</ion-avatar>-->
+      <p (click)="envoiPage()">{{todo.description}}</p>
+      <!--//autre fonction navpop du navController permet de retirer la premiere page de la hiérarchie cad la page courante et donc de revenir à la page précédente-->
+      <button ion-button="secondary" navPop>Back</button>
+    </ion-item>
+  </ion-list>
+  <!--<button ion-button color="orange" class="orange" (click)="EditTodo(todo)">Modifier</button>-->
+  <!--<button ion-button color="danger" (click)="DeleteTodo(todo)">Supprimer</button>-->
+</ion-content>

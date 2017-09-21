@@ -1,5 +1,5 @@
 <!--
-  Generated template for the ContactPage page.
+  Generated template for the TododetailsPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,12 +7,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Contact</ion-title>
+    <ion-title>{{todo.titre}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-{{ pos|json}}
+  <div class="body">
+    {{todo.description}}
+  </div>
+  <!--permet de débuguer-->
+  <!--{{todo | json}}-->
+
+
 </ion-content>

@@ -1,6 +1,25 @@
-<!--<ion-header>
+<ion-header>
   <ion-navbar>
-    <ion-title>Heart</ion-title>
+    <ion-title>TodoList</ion-title>
   </ion-navbar>
-</ion-header>-->
-<ion-content>TodoList</ion-content>
+</ion-header>
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <page-search></page-search>
+<!--  <ion-list>
+    <button ion-item *ngFor="let todo of Todolist" (click)="itemSelected(todo)">{{todo.titre}}</button>
+  </ion-list>-->
+  <!--<button ion-fab color="danger" (click)="openModal()"><ion-icon name="add"></ion-icon></button>-->
+  <ion-icon name="add" (click)="openModal()"></ion-icon>
+  <!--<ion-icon ios="ios-add-circle" md="md-add-circle" (click)="openModal()"></ion-icon>-->
+  <ion-list *ngFor="let todo of service.Todolist">
+
+      <ion-item (swipe)="swipeEvent(todo)">
+        <a  ion-item (click)="openModal(todo)">
+          {{todo.titre}}
+        </a>
+      </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {ModalController,NavController, NavParams, Platform, ViewController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import { AlertController  } from 'ionic-angular';
-import {ModalContentPage} from "../modal-content/modal-content";
 import {TodoPage} from "../todo/todo";
-import {RequestFormPage} from "../request-form/request-form";
+import {AboutPage} from "../about/about";
+import {ContactPage} from "../contact/contact";
 
 
 
@@ -15,11 +15,11 @@ import {RequestFormPage} from "../request-form/request-form";
 export class HomePage {
   home_tab: any;
   contact_tab: any;
-  // about_tab: any;
-  constructor(public navCtrl: NavController,public alertCtrl: AlertController,public modalCtrl: ModalController) {
+  about_tab: any;
+  constructor(public navCtrl: NavController,public alertCtrl: AlertController) {
     this.home_tab = TodoPage;
-    // this.about_tab = Tab2;
-    this.contact_tab = RequestFormPage;
+    this.about_tab = AboutPage;
+    this.contact_tab = ContactPage;
   }
   showAlert() {
     let alert = this.alertCtrl.create({
@@ -29,11 +29,7 @@ export class HomePage {
     });
     alert.present();
   }
-  openModal(characterNum) {
 
-    let modal = this.modalCtrl.create(ModalContentPage, characterNum);
-    modal.present();
-  }
 
 }
 

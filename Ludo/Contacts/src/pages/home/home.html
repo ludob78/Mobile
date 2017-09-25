@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button secondary menuToggle="menu_global">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  <ion-list>
+    <!--<ion-item  *ngFor="let item of contactTab" (click)="SelectedContact(item)">{{itemToDisplay()}}</ion-item>-->
+    <ion-item menuToggle="details_contacts" swipeBackEnabled="true" *ngFor="let contact of contactTab" (click)="SelectedContact(contact)">
+{{!contact.name.formatted?contact.emails[0].value:contact.name.formatted}}
+      </ion-item>
+  </ion-list>
+</ion-content>

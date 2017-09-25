@@ -1,0 +1,3 @@
+https://github.com/AlexDisler/cordova-splash
+npm install icone -splah
+npm install cordova-splash -g

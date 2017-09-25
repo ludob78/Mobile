@@ -31,11 +31,21 @@
           </ion-refresher>
           <div>{{manageContact.contactDto.email}}</div>
           <div>{{manageContact.contactDto.phone}}</div>
-          <button ion-button secondary>Modifier</button>
+          <button ion-button secondary (click)="openEdit()">Modifier</button>
           <!--//pas d'id dans la méthode deleteContact car la méthode utilise l'id du provider-->
           <button ion-button secondary (click)="manageContact.deleteContact()">Supprimer</button>
         </ion-card-content>
         </ion-card>
+      <ion-card>
+
+        <ion-card-header>
+          <div>Lui envoyer un SMS</div>
+        </ion-card-header>
+        <ion-card-content>
+          <textarea name="sms_content" id="sms_contenu" cols="30" rows="10" [(ngModel)]="text_value"></textarea>
+          <button ion-button secondary (click)="sendSms(text_value)">Send SMS</button>
+        </ion-card-content>
+      </ion-card>
     </ion-list>
   </ion-content>
 </ion-menu>

@@ -5,7 +5,7 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class TodoProvider{
-  url:string="http://192.168.1.43:8080/todo/"
+  url:string="http://192.168.0.25:8080/todo/"
   // les variables du service sont disponible dans les components qui appellent le service
   Todolist=[];
   constructor(public http:Http){

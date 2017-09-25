@@ -21,6 +21,9 @@ export class AboutPage {
 //cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyCr0ybhEQvVvWgpB258C6HnrR4MyaMLBSA" --variable API_KEY_FOR_IOS="AIzaSyCr0ybhEQvVvWgpB258C6HnrR4MyaMLBSA"
 //   API_key_GGMap:string="AIzaSyCr0ybhEQvVvWgpB258C6HnrR4MyaMLBSA"
 //   chrome://inspect/#devices
+//   https://github.com/mapsplugin/cordova-plugin-googlemaps/issues/1319
+//   Activer les googles Maps Android API et Google Places API for iOS sur les interfaces API et services de votre compte google
+//   https://console.developers.google.com/apis/api/maps_android_backend/overview?project=fair-solution-172308&duration=PT1H
   map: GoogleMap;
   mapElement: HTMLElement;
   pos: any = {lat: 1, lon: 1};
@@ -32,7 +35,7 @@ export class AboutPage {
     , public geocoder: NativeGeocoder) {
     this.geoloc.getCurrentPosition().then((resp) => {
       this.pos.lat = resp.coords.latitude;
-      this.pos.lon = resp.coords.longitude
+      this.pos.lon = resp.coords.longitude;
       console.log("this.pos.lat,this.pos.lat:", this.pos.lat, this.pos.lat)
 
       this.geocoder.reverseGeocode(resp.coords.latitude, resp.coords.longitude).then((result: NativeGeocoderReverseResult) => {
@@ -100,7 +103,7 @@ export class AboutPage {
     };
 
     this.map = this.googleMaps.create(this.mapElement, mapOptions);
-
+    console.log('this.map:',this.map);
     // Wait the MAP_READY before using any methods.
     this.map.one(GoogleMapsEvent.MAP_READY)
       .then(() => {

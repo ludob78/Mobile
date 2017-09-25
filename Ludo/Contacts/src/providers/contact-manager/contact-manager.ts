@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import {Contacts} from "@ionic-native/contacts";
+import {ContactField, ContactName, Contacts} from "@ionic-native/contacts";
 
 /*
   Generated class for the ContactManagerProvider provider.
@@ -28,14 +28,27 @@ export class ContactManagerProvider {
     return this.contacts.find(['*'])
 
   }
-  addContact(){
-    this.contacts.create()
+  addContact(newContact){
+    let telContact=this.contacts.create()
+    telContact.name=new ContactName(null,newContact.firstname,newContact.lastname);
+    telContact.emails=[new ContactField("email",newContact.email)]
+    telContact.phoneNumbers=[new ContactField("phone",newContact.phone)]
+    return telContact.save();
   }
-  updateContact(){
-
+  updateContact(newContact){
+    console.log("event: in updateContact",event);
+    this.CurrentContactDetails.name.display=newContact.firstname;
+    // this.manageContact.CurrentContactDetails.name.display=new ContactName(null,this.newContact.firstname);
+    this.CurrentContactDetails.name.emails=newContact.firstname;
+    // this.manageContact.CurrentContactDetails.name.emails=[new ContactField("email",this.newContact.firstname)];
+    this.CurrentContactDetails.name.phoneNumbers=newContact.phone;
+    // this.manageContact.CurrentContactDetails.name.phoneNumbers=[new ContactField("phone",this.newContact.phone)];
+    this.CurrentContactDetails.save().then((saved)=>{
+      console.log(saved);
+    })
   }
   deleteContact(){
-    console.log("this.contactDto.id in deleteContact",this.contactDto.id)
+    console.log("this.contactDto.id in deleteContact",this.contactDto.id,this.contactDto.display)
     this.contacts.find(["id"],{
       filter:this.contactDto.id.toString(),
       multiple:false,

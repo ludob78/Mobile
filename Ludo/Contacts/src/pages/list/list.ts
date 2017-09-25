@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {ContactManagerProvider} from "../../providers/contact-manager/contact-manager";
+import {HomePage} from "../home/home";
 
 @Component({
   selector: 'page-list',
@@ -9,8 +11,12 @@ export class ListPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  newContact={
+    firstname:"",
+    email:"",
+    phone:""
+  };
+  constructor(public navCtrl: NavController, public navParams: NavParams,public manageContact:ContactManagerProvider) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -27,7 +33,14 @@ export class ListPage {
       });
     }
   }
+  validateNewContact(e){
+    e.preventDefault();
+    this.manageContact.addContact(this.newContact).then(ContactData=>{
+      console.log(ContactData);
+      this.navCtrl.setRoot(HomePage)
+    });
 
+  }
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(ListPage, {

@@ -18,6 +18,10 @@ import {ModaladdtodoPage} from "../pages/modaladdtodo/modaladdtodo";
 import {Geolocation} from "@ionic-native/geolocation";
 import {NativeGeocoder} from "@ionic-native/native-geocoder";
 import {GoogleMaps} from "@ionic-native/google-maps";
+import {Camera} from "@ionic-native/camera";
+import {PhotosPage} from "../pages/photos/photos";
+import {NativeStorage} from "@ionic-native/native-storage";
+import {PhotoViewer} from "@ionic-native/photo-viewer";
 
 
 @NgModule({
@@ -31,9 +35,7 @@ import {GoogleMaps} from "@ionic-native/google-maps";
     ModaladdtodoPage,
     TododetailsPage,
     SearchPage,
-
-
-
+    PhotosPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import {GoogleMaps} from "@ionic-native/google-maps";
     ModaltodoPage,
     ModaladdtodoPage,
     TododetailsPage,
-    SearchPage
+    SearchPage,
+    PhotosPage
   ],
   providers: [
     StatusBar,
@@ -58,6 +61,9 @@ import {GoogleMaps} from "@ionic-native/google-maps";
      Geolocation,
   NativeGeocoder,
       GoogleMaps,
+    Camera,
+    PhotoViewer,
+    NativeStorage,
       {provide: ErrorHandler, useClass: IonicErrorHandler},
     TodoProvider
   ]

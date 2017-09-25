@@ -11,12 +11,21 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ContactManagerProvider } from '../providers/contact-manager/contact-manager';
 import {Contacts} from "@ionic-native/contacts";
 import {FormsModule} from "@angular/forms";
+import {UpdateFormPage} from "../pages/update-form/update-form";
+import {EmailPage} from "../pages/email/email";
+import {ZbarPage} from "../pages/zbar/zbar";
+import {ZBar} from "@ionic-native/zbar";
+import {EmailComposer} from "@ionic-native/email-composer";
+import {SMS} from "@ionic-native/sms";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    UpdateFormPage,
+    EmailPage,
+    ZbarPage
   ],
   imports: [
     BrowserModule,
@@ -27,11 +36,17 @@ import {FormsModule} from "@angular/forms";
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    UpdateFormPage,
+    EmailPage,
+    ZbarPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    ZBar,
+    SMS,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ContactManagerProvider,
     Contacts

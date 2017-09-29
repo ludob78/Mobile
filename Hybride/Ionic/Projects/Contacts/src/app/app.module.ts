@@ -17,6 +17,8 @@ import {ZbarPage} from "../pages/zbar/zbar";
 import {ZBar} from "@ionic-native/zbar";
 import {EmailComposer} from "@ionic-native/email-composer";
 import {SMS} from "@ionic-native/sms";
+import {MygalleryPage} from "../pages/mygallery/mygallery";
+import {PhotoLibrary} from "@ionic-native/photo-library";
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import {SMS} from "@ionic-native/sms";
     ListPage,
     UpdateFormPage,
     EmailPage,
+    MygalleryPage,
     ZbarPage
   ],
   imports: [
@@ -39,6 +42,7 @@ import {SMS} from "@ionic-native/sms";
     ListPage,
     UpdateFormPage,
     EmailPage,
+    MygalleryPage,
     ZbarPage
   ],
   providers: [
@@ -47,6 +51,7 @@ import {SMS} from "@ionic-native/sms";
     ZBar,
     SMS,
     EmailComposer,
+    PhotoLibrary,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ContactManagerProvider,
     Contacts

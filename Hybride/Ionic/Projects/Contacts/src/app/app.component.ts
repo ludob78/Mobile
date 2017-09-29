@@ -10,6 +10,7 @@ import {UpdateFormPage} from "../pages/update-form/update-form";
 import {ZbarPage} from "../pages/zbar/zbar";
 import {EmailPage} from "../pages/email/email";
 import {SMS} from "@ionic-native/sms";
+import {MygalleryPage} from "../pages/mygallery/mygallery";
 
 @Component({
   templateUrl: 'app.html'
@@ -34,6 +35,7 @@ export class MyApp {
       {title: 'Create contact', component: ListPage},
       {title: 'Scan', component: ZbarPage},
       {title: 'ListEmail', component: EmailPage},
+      {title: 'My Gallery', component: MygalleryPage},
     ];
 
   }
